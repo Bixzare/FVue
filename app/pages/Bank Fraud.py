@@ -251,7 +251,7 @@ if submit:
     last = final[['payment_type', 'employment_status', 'housing_status', 'source', 'device_os']]
     num = final[['income','name_email_similarity','prev_address_months_count','current_address_months_count','customer_age', 'days_since_request', 'intended_balcon_amount', 'zip_count_4w', 'velocity_6h', 'velocity_24h', 'velocity_4w', 'bank_branch_count_8w', 'date_of_birth_distinct_emails_4w', 'credit_risk_score', 'email_is_free', 'phone_home_valid', 'phone_mobile_valid', 'bank_months_count', 'has_other_cards', 'proposed_credit_limit', 'foreign_request', 'session_length_in_minutes', 'keep_alive_session', 'device_distinct_emails_8w','month']]
     st.write(last)
-    with open ('("/mount/src/fvue/app/bank_fraud_encoder.txt','r') as f:
+    with open ('/mount/src/fvue/app/bank_fraud_encoder.txt','r') as f:
         encoder = [line.strip() for line in f]
 
     encoded_pre = pd.get_dummies(final)
