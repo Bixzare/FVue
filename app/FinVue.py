@@ -12,7 +12,7 @@ st.set_page_config(
 
 
 st.write("<h1> Welcome to FinVue  </h1>", unsafe_allow_html=True)
-st.image("/mount/src/fvue/app/img/FinVue.png")
+st.image("img/FinVue.png")
 st.sidebar.success("Select a option above.")
 
 st.markdown(
