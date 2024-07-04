@@ -261,7 +261,7 @@ if submit:
             encoded_pre[col] = 0
     encoded_pre = encoded_pre[encoder]
 
-    #encoded_pre = encoded_pre.drop(['device_fraud_count','fraud_bool'], axis = 1)
+    encoded_pre = encoded_pre.drop(['device_fraud_count','fraud_bool'], axis = 1)
     st.write(encoded_pre,encoded_pre.shape)
 
     with open('/mount/src/fvue/app/models/bank_fraud_final.pkl','rb') as f:
