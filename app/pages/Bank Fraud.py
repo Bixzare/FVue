@@ -250,7 +250,6 @@ if submit:
     final = pd.DataFrame([fi], columns = cols )
     last = final[['payment_type', 'employment_status', 'housing_status', 'source', 'device_os']]
     num = final[['income','name_email_similarity','prev_address_months_count','current_address_months_count','customer_age', 'days_since_request', 'intended_balcon_amount', 'zip_count_4w', 'velocity_6h', 'velocity_24h', 'velocity_4w', 'bank_branch_count_8w', 'date_of_birth_distinct_emails_4w', 'credit_risk_score', 'email_is_free', 'phone_home_valid', 'phone_mobile_valid', 'bank_months_count', 'has_other_cards', 'proposed_credit_limit', 'foreign_request', 'session_length_in_minutes', 'keep_alive_session', 'device_distinct_emails_8w','month']]
-    st.write(last)
     with open ('/mount/src/fvue/app/bank_fraud_encoder.txt','r') as f:
         encoder = [line.strip() for line in f]
 
@@ -262,7 +261,6 @@ if submit:
     encoded_pre = encoded_pre[encoder]
 
     encoded_pre = encoded_pre.drop(['device_fraud_count','fraud_bool'], axis = 1)
-    st.write(encoded_pre,encoded_pre.shape)
 
     with open('/mount/src/fvue/app/models/bank_fraud_final.pkl','rb') as f:
         model = pickle.load(f)
@@ -272,7 +270,7 @@ if submit:
 
     output = "At Risk\n" if pred == 1 else "Not at Risk\n"
 
-    st.write(output,"Certainty percentage XGBoost  : ",pro)
+    st.write(output,"Certainty percentage *KNN : ",pro)
 
 more = st.button("Learn more about the columns")
 
