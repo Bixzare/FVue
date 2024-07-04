@@ -15,7 +15,6 @@ st.markdown(
 )
 
 df = pd.read_csv("/mount/src/fvue/app/datasets/Credit Score/cred_score_cleaned.csv", nrows = 5000)
-corr_matrix = df.corr()
 m = {
     0:"Poor",
     1:"Standard",
