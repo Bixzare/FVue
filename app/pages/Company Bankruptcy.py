@@ -14,7 +14,7 @@ st.set_page_config(layout="wide")
 
 st.write("<h1> Company Bankruptcy Detection </h1>", unsafe_allow_html=True)
 
-df = pd.read_csv('/mount/src/datasets/Company Bankruptcy/bankruptcy_scaled.csv', nrows = 2500)
+df = pd.read_csv('/mount/src/fvue/app/datasets/Company Bankruptcy/bankruptcy_scaled.csv', nrows = 2500)
 
 mean_std = pd.read_csv('mean_std.csv', index_col = 0)
 st.markdown(
