@@ -24,8 +24,8 @@ df['Credit_Score'] = df['Credit_Score'].map(m)
 
 learn_more = st.button("Click for more info")
 
-#with open('/mount/src/fvue/app/models/credit_score_scaler.joblib', 'rb') as f:
-scaler = joblib.load('/mount/src/fvue/app/models/credit_score_scaler.joblib')
+with open('/mount/src/fvue/app/models/credit_score_scaler.joblib', 'rb') as f:
+    scaler = joblib.load(f)
 
 with open('/mount/src/fvue/app/dummy_columns.txt','r') as f:
     dummy_columns = f.read().splitlines()
@@ -261,8 +261,8 @@ if submit:
     
     # fitted scalar to properly scale now need to use get_dummies on row
     import sklearn
-    with open('/mount/src/fvue/app/models/credit_score_model_full.pkl','rb') as f:
-        model = pickle.load(f)
+    #with open('/mount/src/fvue/app/models/credit_score_model_full.pkl','rb') as f:
+    model = pickle.load('/mount/src/fvue/app/models/credit_score_model_full.pkl')
     pred = model.predict(input)
     prob_est = model.predict_proba(input)
 
