@@ -270,7 +270,7 @@ if submit:
 
     output = "At Risk\n" if pred == 1 else "Not at Risk\n"
 
-    st.write(output,"Certainty percentage *KNN : ",pro)
+    st.write(output,"Certainty percentage (XGBoost) : ",pro)
 
 more = st.button("Learn more about the columns")
 
