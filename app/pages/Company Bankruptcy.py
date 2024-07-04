@@ -16,7 +16,7 @@ st.write("<h1> Company Bankruptcy Detection </h1>", unsafe_allow_html=True)
 
 df = pd.read_csv('/mount/src/fvue/app/datasets/Company Bankruptcy/bankruptcy_scaled.csv', nrows = 2500)
 
-mean_std = pd.read_csv('mean_std.csv', index_col = 0)
+mean_std = pd.read_csv('/mount/src/fvue/app/mean_std.csv', index_col = 0)
 st.markdown(
     """
     Companies are the corner stone of finances and their continued and existence is key in many reguards    
@@ -191,10 +191,10 @@ if st.button("Generate Plot"):
 
     st.pyplot(fig)
 if st.button("Show Correleation matrix"):
-    image = open('/mount/src/img/bankruptcy_corr.png', 'rb').read()
+    image = open('/mount/src/fvue/app//bankruptcy_corr.png', 'rb').read()
     st.image(image, caption =  'Bankruptcy Correlation Matrix', use_column_width = True)
 if st.button("Show Confusion Matrix"):
-    image = open('/mount/src/img/bankruptcy_conf.png', 'rb').read()
+    image = open('/mount/src/fvue/app//bankruptcy_conf.png', 'rb').read()
     st.image(image,caption = "Bankruptcy Confusion Matrix", use_column_width = True)
     
 about_model = st.button("Model Metrics")
@@ -422,7 +422,7 @@ if submit:
         if f in feat_df.columns and f in mean_std.index:
             feat_df[f] = (feat_df[f] - mean_std.loc[feat,'mean']) / mean_std.loc[feat, 'std']
 
-    with open('/mount/src/models/bank_model_50.pkl', 'rb') as f:
+    with open('/mount/src/fvue/app/models/bank_model_50.pkl', 'rb') as f:
         model = pickle.load(f)
     pred = model.predict(feat_df)
     prob_est = model.predict_proba(feat_df)
