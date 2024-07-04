@@ -1,3 +1,4 @@
 seaborn
-scikit-learn
+scikit-learn == 1.2.1
 matplotlib
+pickle
