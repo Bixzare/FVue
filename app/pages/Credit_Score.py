@@ -14,7 +14,7 @@ st.markdown(
     Credit Score is a very useful metric for financial analysis , it can inform about multiple aspects of one's finances , including debt """
 )
 
-df = pd.read_csv("datasets/Credit Score/cred_score_cleaned.csv", nrows = 5000)
+df = pd.read_csv("/mount/src/fvue/appdatasets/Credit Score/cred_score_cleaned.csv", nrows = 5000)
 corr_matrix = df.corr()
 m = {
     0:"Poor",
@@ -25,10 +25,10 @@ df['Credit_Score'] = df['Credit_Score'].map(m)
 
 learn_more = st.button("Click for more info")
 
-with open('models/credit_score_scaler.joblib', 'rb') as f:
+with open('/mount/src/fvue/appmodels/credit_score_scaler.joblib', 'rb') as f:
     scaler = joblib.load(f)
 
-with open('dummy_columns.txt','r') as f:
+with open('/mount/src/fvue/appdummy_columns.txt','r') as f:
     dummy_columns = f.read().splitlines()
 
 
@@ -145,10 +145,10 @@ if st.button("Generate Plot"):
     st.pyplot(fig)
 
 if st.button("Show Correleation matrix"):
-    image = open('img/credit_score_matrix.png', 'rb').read()
+    image = open('/mount/src/fvue/appimg/credit_score_matrix.png', 'rb').read()
     st.image(image, caption =  'Income Correlation Matrix', use_column_width = True)
 if st.button("Show Confusion Matrix"):
-    image = open('img/credit_score_conf.png', 'rb').read()
+    image = open('/mount/src/fvue/appimg/credit_score_conf.png', 'rb').read()
     st.image(image,caption = "Income Confusion Matrix", use_column_width = True)
     
 
@@ -262,7 +262,7 @@ if submit:
     
     # fitted scalar to properly scale now need to use get_dummies on row
     import sklearn
-    with open('models/credit_score_model_full.pkl','rb') as f:
+    with open('/mount/src/fvue/appmodels/credit_score_model_full.pkl','rb') as f:
         model = pickle.load(f)
     pred = model.predict(input)
     prob_est = model.predict_proba(input)
