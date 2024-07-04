@@ -261,7 +261,7 @@ if submit:
     
     # fitted scalar to properly scale now need to use get_dummies on row
     import sklearn
-    with open('/mount/src/fvue/app/models/credit_score_model_full.pkl','rb') as f:
+    with open('/mount/src/fvue/app/models/credit_score_model_full.feather','rb') as f:
         model = pickle.load(f)
     pred = model.predict(input)
     prob_est = model.predict_proba(input)
