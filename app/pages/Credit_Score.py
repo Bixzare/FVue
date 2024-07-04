@@ -24,8 +24,8 @@ df['Credit_Score'] = df['Credit_Score'].map(m)
 
 learn_more = st.button("Click for more info")
 
-with open('/mount/src/fvue/app/models/credit_score_scaler.joblib', 'rb') as f:
-    scaler = joblib.load(f)
+#with open('/mount/src/fvue/app/models/credit_score_scaler.joblib', 'rb') as f:
+scaler = joblib.load('/mount/src/fvue/app/models/credit_score_scaler.joblib')
 
 with open('/mount/src/fvue/app/dummy_columns.txt','r') as f:
     dummy_columns = f.read().splitlines()
